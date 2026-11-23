@@ -1,7 +1,7 @@
 import { store } from '../redux/store'
 import { logout } from '../redux/authSlice'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+const API_URL = import.meta.env.VITE_API_URL || ''
 
 async function request(path, options = {}) {
   const token = store.getState().auth.token

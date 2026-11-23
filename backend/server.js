@@ -27,10 +27,14 @@ connectDB()
   .then(() => console.log('MongoDB connected'))
   .catch((error) => console.warn(`MongoDB unavailable: ${error.message}`))
 
-app.listen(PORT, (error) => {
-  if (error) {
-    console.error(`Server could not start on port ${PORT}: ${error.message}`)
-    process.exit(1)
-  }
-  console.log(`CareerCompass backend running on port ${PORT}`)
-})
+if (require.main === module) {
+  app.listen(PORT, (error) => {
+    if (error) {
+      console.error(`Server could not start on port ${PORT}: ${error.message}`)
+      process.exit(1)
+    }
+    console.log(`CareerCompass backend running on port ${PORT}`)
+  })
+}
+
+module.exports = app
